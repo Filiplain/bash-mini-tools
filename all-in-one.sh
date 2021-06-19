@@ -28,7 +28,7 @@ allTCPports=$(nmap -Pn --min-rate 5000 -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.
     echo -e "\n${blue}Full Scan for Open TCP ports:\n${end}"
     nmap -Pn -sV -sC -p$allTCPports $1 > tcp.txt
     cat tcp.txt
-    rm tcp.tmp
+    
   else
       echo -e "${red}\n\n -- No TCP ports open -- \n\n${end}"  
   fi
@@ -42,7 +42,7 @@ allTCPports=$(nmap -Pn --min-rate 5000 -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.
          echo -e "\n${blue}Full Scan for Open UDP ports:\n${end}"
          nmap -Pn -sU -sV -sC -p$udpports $1 > udp.txt
          cat udp.txt
-         rm udp.tmp
+         
        else
           echo -e "${red}\n\n -- No UDP ports open -- \n\n${end}"
        		
@@ -59,5 +59,6 @@ else
    echo -e "${red}\n Usage: $0 <IP address>${end}"
 
 fi
-
+rm tcp.tmp
+rm udp.tmp
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
