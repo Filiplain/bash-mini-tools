@@ -30,7 +30,7 @@ rm tcp.tmp
   if [ $(id -u) == "0" ]
   then
        echo -e "\n ${blue}Scanning UDP ports ${end}\n"
-       udpports=$(nmap -Pn -sU --min-rate 5000 $1|grep 'udp' |cut -d '/' -f 1 > udp.tmp;cat udp.tmp|tr '\n' ',')
+       udpports=$(nmap -Pn -sU --min-rate 5000 --open $1|grep 'udp' |cut -d '/' -f 1 > udp.tmp;cat udp.tmp|tr '\n' ',')
        echo -e "\n${blue}Open UDP ports:${end}${yellow} \n $(echo $udpports| tr ',' '\n')${end}\n\n"
        echo -e "\n${blue}Full Scan for Open UDP ports:\n${end}"
        nmap -Pn -sU -sV -sC -p$udpports $1 > udp.txt
