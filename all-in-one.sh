@@ -12,6 +12,8 @@ trap ctrl_c INT
 
 function ctrl_c(){
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
+rm tcp.tmp
+rm udp.tmp
 exit 0
 
 }
