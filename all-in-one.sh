@@ -22,7 +22,7 @@ exit 0
 if [ "$1" ]
 then
 echo -e "${blue}\nScanning TCP ports${end} \n"
-allTCPports=$(nmap -Pn --min-rate 5000 -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.tmp;cat tcp.tmp|tr '\n' ',')
+allTCPports=$(nmap -Pn --min-rate 5000 --open -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.tmp;cat tcp.tmp|tr '\n' ',')
   
   if [ -s ./tcp.tmp ]
     then
