@@ -12,8 +12,8 @@ trap ctrl_c INT
 
 function ctrl_c(){
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
-if [ -f udp.tmp ];rm udp.tmp;fi
-if [ -f tcp.tmp ];rm tcp.tmp;fi
+if [ -f udp.tmp ];then rm udp.tmp;fi
+if [ -f tcp.tmp ];then rm tcp.tmp;fi
 exit 0
 
 }
@@ -61,6 +61,6 @@ else
    echo -e "${red}\n Usage: $0 <IP address>${end}"
 
 fi
-if [ -f udp.tmp ];rm udp.tmp;fi
-if [ -f tcp.tmp ];rm tcp.tmp;fi
+if [ -f udp.tmp ];then rm udp.tmp;fi
+if [ -f tcp.tmp ];then rm tcp.tmp;fi
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
