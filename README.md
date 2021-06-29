@@ -12,6 +12,6 @@ https://github.com/Filiplain/bash-mini-tools/blob/main/mini-all-in-one.sh
 
 
 **ps-mon.sh:** Prcoess Monitor\
-https://github.com/Filiplain/bash-mini-tools/blob/main/ps-mon.sh\
+https://github.com/Filiplain/bash-mini-tools/blob/main/ps-mon.sh
 
 #Filiplain
