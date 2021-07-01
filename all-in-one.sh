@@ -22,13 +22,13 @@ exit 0
 if [ "$1" ]
 then
 echo -e "${blue}\nScanning TCP ports${end} \n"
-allTCPports=$(nmap -Pn --min-rate 5000 --open -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.tmp;cat tcp.tmp|tr '\n' ',')
+allTCPports=$(nmap -Pn -n --max-retries=0 --min-rate 5000 --open -p- $1|grep 'tcp' |cut -d '/' -f 1 > tcp.tmp;cat tcp.tmp|tr '\n' ',')
   
   if [ -s ./tcp.tmp ]
     then
     echo -e "\n${blue}Open TCP ports:${end}${yellow} \n $(echo $allTCPports| tr ',' '\n')${end}\n\n"
     echo -e "\n${blue}Full Scan for Open TCP ports:\n${end}"
-    nmap -Pn -sV -sC -p$allTCPports $1 > tcp.txt
+    nmap -Pn -n -sV -sC -p$allTCPports $1 > tcp.txt
     cat tcp.txt
     
   else
@@ -37,7 +37,7 @@ allTCPports=$(nmap -Pn --min-rate 5000 --open -p- $1|grep 'tcp' |cut -d '/' -f 1
   if [ $(id -u) == "0" ]
   then
        echo -e "\n ${blue}Scanning UDP ports ${end}\n"
-       udpports=$(nmap -Pn -sU --min-rate 5000 --open $1|grep 'udp' |cut -d '/' -f 1 > udp.tmp;cat udp.tmp|tr '\n' ',')
+       udpports=$(nmap -Pn -sU -n --max-retries=0 --min-rate 5000 --open $1|grep 'udp' |cut -d '/' -f 1 > udp.tmp;cat udp.tmp|tr '\n' ',')
        if [ -s ./udp.tmp ]
          then    
          echo -e "\n${blue}Open UDP ports:${end}${yellow} \n $(echo $udpports| tr ',' '\n')${end}\n\n"
