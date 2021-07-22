@@ -2,7 +2,7 @@
 
 Small_tools_for_common_pentesting_tasks
 
-**all-in-one.sh:** Quick All ports scan + Full scan\
+**all-in-one.sh:** Quick All ports scan + Full scan + SNMP check\
 https://github.com/Filiplain/bash-mini-tools/blob/main/all-in-one.sh
 
 
