@@ -16,6 +16,7 @@ if [ -f udp.tmp ];then rm udp.tmp;fi
 if [ -f tcp.tmp ];then rm tcp.tmp;fi
 if [ -f snmpwalkv1.tmp ];then rm snmpwalkv1.tmp;fi
 if [ -f snmpwalkv2c.tmp ];then rm snmpwalkv2c.tmp;fi
+if [ -f where.tmp ];then rm where.tmp;fi
 exit 0
 }
 
