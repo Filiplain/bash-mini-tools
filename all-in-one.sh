@@ -58,7 +58,7 @@ allTCPports=$(nmap -Pn -n --max-retries=0 --min-rate 5000 --open -p- $1|grep 'tc
   fi
   whereis snmpwalk|cut -d ":" -f 2 > where.tmp
   if [ -s ./where.tmp ];then
-      echo -e "\n${blue}Checking if SNMP available:\n${end}"
+      echo -e "\n${blue}Checking if SNMP available (Public):\n${end}"
       snmpwalk -v 1 -c public $1 iso.3.6.1.2.1.1.1.0 > snmpwalkv1.tmp
       snmpwalk -v 2c -c public $1 iso.3.6.1.2.1.1.1.0 > snmpwalkv2c.tmp
       sleep 5
@@ -66,7 +66,7 @@ allTCPports=$(nmap -Pn -n --max-retries=0 --min-rate 5000 --open -p- $1|grep 'tc
        echo -e "${blue}\n SNMP v1:\n\n${end} $(cat ./snmpwalkv1.tmp)"
        echo -e "${blue}\n SNMP v2c:\n\n${end} $(cat ./snmpwalkv2c.tmp)"
       else
-      	 echo -e "${red}\n\n -- No SNMP Availabe -- \n\n${end}"
+      	 echo -e "${red}\n\n -- No SNMP Availabe (Public) -- \n\n${end}"
       fi
   else
      echo -e "\n${blue}Install snmpwalk to ckeck SNMP:${end}\n${red}sudo apt install snmp${end}"
