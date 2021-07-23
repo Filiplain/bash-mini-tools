@@ -12,13 +12,14 @@ trap ctrl_c INT
 
 function ctrl_c(){
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
-if [ -f udp.tmp ];then rm udp.tmp;fi
-if [ -f tcp.tmp ];then rm tcp.tmp;fi
-if [ -f snmpwalkv1.tmp ];then rm snmpwalkv1.tmp;fi
-if [ -f snmpwalkv2c.tmp ];then rm snmpwalkv2c.tmp;fi
-if [ -f where.tmp ];then rm where.tmp;fi
+if [ -f udp.tmp ];then rm -f udp.tmp;fi
+if [ -f tcp.tmp ];then rm -f tcp.tmp;fi
+if [ -f snmpwalkv1.tmp ];then rm -f snmpwalkv1.tmp;fi
+if [ -f snmpwalkv2c.tmp ];then rm -f snmpwalkv2c.tmp;fi
+if [ -f where.tmp ];then rm -f where.tmp;fi
 exit 0
 }
+
 
 
 if [ "$1" ]
@@ -73,13 +74,13 @@ allTCPports=$(nmap -Pn -n --max-retries=0 --min-rate 5000 --open -p- $1|grep 'tc
      echo -e "\n${blue}Install snmpwalk to ckeck SNMP:${end}\n${red}sudo apt install snmp${end}"
   
   fi 
-  rm ./where.tmp
+ rm -f ./where.tmp
 else
    echo -e "${red}\n Usage: $0 <IP address>${end}"
 
 fi
-if [ -f udp.tmp ];then rm udp.tmp;fi
-if [ -f tcp.tmp ];then rm tcp.tmp;fi
-if [ -f snmpwalkv1.tmp ];then rm snmpwalkv1.tmp;fi
-if [ -f snmpwalkv2c.tmp ];then rm snmpwalkv2c.tmp;fi
+if [ -f udp.tmp ];then rm -f udp.tmp;fi
+if [ -f tcp.tmp ];then rm -f tcp.tmp;fi
+if [ -f snmpwalkv1.tmp ];then rm -f snmpwalkv1.tmp;fi
+if [ -f snmpwalkv2c.tmp ];then rm -f snmpwalkv2c.tmp;fi
 echo -e "\n\n\n${red}Made${end} in ${blue}Do${end}"
