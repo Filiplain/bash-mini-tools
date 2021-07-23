@@ -20,8 +20,6 @@ if [ -f where.tmp ];then rm -f where.tmp;fi
 exit 0
 }
 
-
-
 if [ "$1" ]
 then
 echo -e "${blue}\nScanning TCP ports${end} \n"
@@ -51,7 +49,6 @@ allTCPports=$(nmap -Pn -n --max-retries=0 --min-rate 5000 --open -p- $1|grep 'tc
        else
           echo -e "${red}\n\n -- No UDP ports open -- \n\n${end}"
        		
-       
        fi
 
   else
